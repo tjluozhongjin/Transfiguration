@@ -14,11 +14,11 @@
   - Augmented reality
 - The project should be finished by a team with less or equal than (<=) 3 students
 
-### Program(25%)
+### Program
 
 - You should submit your program for the final project and a readme file with instructions on how to run the program.
 
-### Report(35%)
+### Report
 
 - Your report should be written in English and contain the following contents:
   1. A brief description about your program (including the structures and modules of the program)
@@ -28,10 +28,10 @@
 
 ### Marking Scheme
 
-- Program
+- Program(25%)
   - each feature/function(7points)
   - Originality (4points)
-- Report
+- Report(35%)
   - 1(10points)
   - 2(5points)
   - 3(10points)
