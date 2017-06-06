@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F0C501D1EE3494F00035DCA /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0C501C1EE3494F00035DCA /* OverlayView.xib */; };
+		2F0C501F1EE3498600035DCA /* MemberOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C501E1EE3498600035DCA /* MemberOverlayView.swift */; };
+		2F0C50211EE38BED00035DCA /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C50201EE38BED00035DCA /* AgendaViewController.swift */; };
+		2F0C50231EE38C8800035DCA /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C50221EE38C8800035DCA /* WeatherViewController.swift */; };
+		2F2AB3C21EE32CD200F78862 /* VisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AB3C11EE32CD200F78862 /* VisitorViewController.swift */; };
+		2F2AB3C41EE32D4100F78862 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AB3C31EE32D4100F78862 /* FamilyViewController.swift */; };
+		2FDEA1D01EE3162C005F0052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDEA1CF1EE3162C005F0052 /* AppDelegate.swift */; };
+		2FDEA1D21EE3162C005F0052 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDEA1D11EE3162C005F0052 /* IndexViewController.swift */; };
+		2FDEA1D51EE3162C005F0052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FDEA1D31EE3162C005F0052 /* Main.storyboard */; };
+		2FDEA1DA1EE3162C005F0052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FDEA1D81EE3162C005F0052 /* LaunchScreen.storyboard */; };
+		CB5AA0771EE3232C008EF11E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB5AA0761EE3232C008EF11E /* Assets.xcassets */; };
+		FC1E01F03A65C151E05BF171 /* Pods_DoorBell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2376E41A817B10C2880FA404 /* Pods_DoorBell.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		10B03CBC06D43E17BD8EF916 /* Pods-DoorBell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoorBell.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoorBell/Pods-DoorBell.release.xcconfig"; sourceTree = "<group>"; };
+		2376E41A817B10C2880FA404 /* Pods_DoorBell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoorBell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F0C501C1EE3494F00035DCA /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
+		2F0C501E1EE3498600035DCA /* MemberOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberOverlayView.swift; sourceTree = "<group>"; };
+		2F0C50201EE38BED00035DCA /* AgendaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
+		2F0C50221EE38C8800035DCA /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		2F2AB3C11EE32CD200F78862 /* VisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorViewController.swift; sourceTree = "<group>"; };
+		2F2AB3C31EE32D4100F78862 /* FamilyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
+		2FDEA1CC1EE3162C005F0052 /* DoorBell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoorBell.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FDEA1CF1EE3162C005F0052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2FDEA1D11EE3162C005F0052 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		2FDEA1D41EE3162C005F0052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2FDEA1D91EE3162C005F0052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2FDEA1DB1EE3162C005F0052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB5AA0761EE3232C008EF11E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D1845FCC5ECB7BDB223687E9 /* Pods-DoorBell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoorBell.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoorBell/Pods-DoorBell.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2FDEA1C91EE3162C005F0052 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC1E01F03A65C151E05BF171 /* Pods_DoorBell.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0780B264C37949B546BC61AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2376E41A817B10C2880FA404 /* Pods_DoorBell.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2FDEA1C31EE3162C005F0052 = {
+			isa = PBXGroup;
+			children = (
+				2FDEA1CE1EE3162C005F0052 /* DoorBell */,
+				2FDEA1CD1EE3162C005F0052 /* Products */,
+				81BFF74E67B970FDDE2DB7C2 /* Pods */,
+				0780B264C37949B546BC61AA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2FDEA1CD1EE3162C005F0052 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2FDEA1CC1EE3162C005F0052 /* DoorBell.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2FDEA1CE1EE3162C005F0052 /* DoorBell */ = {
+			isa = PBXGroup;
+			children = (
+				2F0C501C1EE3494F00035DCA /* OverlayView.xib */,
+				2F0C501E1EE3498600035DCA /* MemberOverlayView.swift */,
+				CB5AA0761EE3232C008EF11E /* Assets.xcassets */,
+				2FDEA1CF1EE3162C005F0052 /* AppDelegate.swift */,
+				2F2AB3C31EE32D4100F78862 /* FamilyViewController.swift */,
+				2FDEA1D11EE3162C005F0052 /* IndexViewController.swift */,
+				2F2AB3C11EE32CD200F78862 /* VisitorViewController.swift */,
+				2F0C50201EE38BED00035DCA /* AgendaViewController.swift */,
+				2F0C50221EE38C8800035DCA /* WeatherViewController.swift */,
+				2FDEA1D31EE3162C005F0052 /* Main.storyboard */,
+				2FDEA1D81EE3162C005F0052 /* LaunchScreen.storyboard */,
+				2FDEA1DB1EE3162C005F0052 /* Info.plist */,
+			);
+			path = DoorBell;
+			sourceTree = "<group>";
+		};
+		81BFF74E67B970FDDE2DB7C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D1845FCC5ECB7BDB223687E9 /* Pods-DoorBell.debug.xcconfig */,
+				10B03CBC06D43E17BD8EF916 /* Pods-DoorBell.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2FDEA1CB1EE3162C005F0052 /* DoorBell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FDEA1DE1EE3162C005F0052 /* Build configuration list for PBXNativeTarget "DoorBell" */;
+			buildPhases = (
+				C93FD88AE4F6222D717C525B /* [CP] Check Pods Manifest.lock */,
+				2FDEA1C81EE3162C005F0052 /* Sources */,
+				2FDEA1C91EE3162C005F0052 /* Frameworks */,
+				2FDEA1CA1EE3162C005F0052 /* Resources */,
+				CA715A43FB24D9E06E2A602F /* [CP] Embed Pods Frameworks */,
+				323579AE04FDA17D94C040F9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DoorBell;
+			productName = DoorBell;
+			productReference = 2FDEA1CC1EE3162C005F0052 /* DoorBell.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FDEA1C41EE3162C005F0052 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Yang Li";
+				TargetAttributes = {
+					2FDEA1CB1EE3162C005F0052 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = G4WT85FFHH;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2FDEA1C71EE3162C005F0052 /* Build configuration list for PBXProject "DoorBell" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2FDEA1C31EE3162C005F0052;
+			productRefGroup = 2FDEA1CD1EE3162C005F0052 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FDEA1CB1EE3162C005F0052 /* DoorBell */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2FDEA1CA1EE3162C005F0052 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FDEA1DA1EE3162C005F0052 /* LaunchScreen.storyboard in Resources */,
+				2F0C501D1EE3494F00035DCA /* OverlayView.xib in Resources */,
+				CB5AA0771EE3232C008EF11E /* Assets.xcassets in Resources */,
+				2FDEA1D51EE3162C005F0052 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		323579AE04FDA17D94C040F9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoorBell/Pods-DoorBell-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C93FD88AE4F6222D717C525B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CA715A43FB24D9E06E2A602F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoorBell/Pods-DoorBell-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FDEA1C81EE3162C005F0052 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FDEA1D21EE3162C005F0052 /* IndexViewController.swift in Sources */,
+				2F2AB3C21EE32CD200F78862 /* VisitorViewController.swift in Sources */,
+				2F0C50211EE38BED00035DCA /* AgendaViewController.swift in Sources */,
+				2F2AB3C41EE32D4100F78862 /* FamilyViewController.swift in Sources */,
+				2F0C50231EE38C8800035DCA /* WeatherViewController.swift in Sources */,
+				2F0C501F1EE3498600035DCA /* MemberOverlayView.swift in Sources */,
+				2FDEA1D01EE3162C005F0052 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2FDEA1D31EE3162C005F0052 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FDEA1D41EE3162C005F0052 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2FDEA1D81EE3162C005F0052 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FDEA1D91EE3162C005F0052 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2FDEA1DC1EE3162C005F0052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2FDEA1DD1EE3162C005F0052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2FDEA1DF1EE3162C005F0052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1845FCC5ECB7BDB223687E9 /* Pods-DoorBell.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G4WT85FFHH;
+				INFOPLIST_FILE = DoorBell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.tongji;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		2FDEA1E01EE3162C005F0052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10B03CBC06D43E17BD8EF916 /* Pods-DoorBell.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G4WT85FFHH;
+				INFOPLIST_FILE = DoorBell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.edu.tongji;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2FDEA1C71EE3162C005F0052 /* Build configuration list for PBXProject "DoorBell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FDEA1DC1EE3162C005F0052 /* Debug */,
+				2FDEA1DD1EE3162C005F0052 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FDEA1DE1EE3162C005F0052 /* Build configuration list for PBXNativeTarget "DoorBell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FDEA1DF1EE3162C005F0052 /* Debug */,
+				2FDEA1E01EE3162C005F0052 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2FDEA1C41EE3162C005F0052 /* Project object */;
+}
