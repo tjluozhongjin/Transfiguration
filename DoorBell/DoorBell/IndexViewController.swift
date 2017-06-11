@@ -9,12 +9,14 @@
 import UIKit
 import PhotosUI
 import MobileCoreServices
+import LocalAuthentication
 
 class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   @IBOutlet weak var backgroundView: UIImageView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    touchID()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -74,16 +76,39 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
     picker.dismiss(animated: true, completion: nil)
   }
   
+  func touchID() {
+    let context = LAContext()
+    var error: NSError?
+    
+    if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+      context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Please unlock with fingerprints", reply: { (success, error) in
+        if success {
+          print("success")
+          // do the success thing
+        } else {
+          if (error as NSError?) != nil {
+            print("error")
+            // do the error thing
+          }
+        }
+      })
+    }
+  }
+  
   @IBAction func visitor(_ sender: UIButton) {
+    
   }
   
   @IBAction func family(_ sender: UIButton) {
+    
   }
   
   @IBAction func agenda(_ sender: UIButton) {
+    
   }
   
   @IBAction func weather(_ sender: UIButton) {
+    
   }
 }
 
