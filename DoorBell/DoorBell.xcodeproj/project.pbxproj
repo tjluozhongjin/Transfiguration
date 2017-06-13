@@ -14,6 +14,8 @@
 		2F2AB3C21EE32CD200F78862 /* VisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AB3C11EE32CD200F78862 /* VisitorViewController.swift */; };
 		2F2AB3C41EE32D4100F78862 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AB3C31EE32D4100F78862 /* FamilyViewController.swift */; };
 		2F9F14F51EED9AC300C32482 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9F14F41EED9AB400C32482 /* LocalAuthentication.framework */; };
+		2FC208551EF01F69009CF2D8 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC208531EF01F69009CF2D8 /* EventKit.framework */; };
+		2FC208561EF01F69009CF2D8 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC208541EF01F69009CF2D8 /* EventKitUI.framework */; };
 		2FDEA1D01EE3162C005F0052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDEA1CF1EE3162C005F0052 /* AppDelegate.swift */; };
 		2FDEA1D21EE3162C005F0052 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDEA1D11EE3162C005F0052 /* IndexViewController.swift */; };
 		2FDEA1D51EE3162C005F0052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FDEA1D31EE3162C005F0052 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 		2F2AB3C11EE32CD200F78862 /* VisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorViewController.swift; sourceTree = "<group>"; };
 		2F2AB3C31EE32D4100F78862 /* FamilyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		2F9F14F41EED9AB400C32482 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		2FC208531EF01F69009CF2D8 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		2FC208541EF01F69009CF2D8 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
 		2FDEA1CC1EE3162C005F0052 /* DoorBell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoorBell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FDEA1CF1EE3162C005F0052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FDEA1D11EE3162C005F0052 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FC208551EF01F69009CF2D8 /* EventKit.framework in Frameworks */,
+				2FC208561EF01F69009CF2D8 /* EventKitUI.framework in Frameworks */,
 				2F9F14F51EED9AC300C32482 /* LocalAuthentication.framework in Frameworks */,
 				FC1E01F03A65C151E05BF171 /* Pods_DoorBell.framework in Frameworks */,
 			);
@@ -58,6 +64,8 @@
 		0780B264C37949B546BC61AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FC208531EF01F69009CF2D8 /* EventKit.framework */,
+				2FC208541EF01F69009CF2D8 /* EventKitUI.framework */,
 				2F9F14F41EED9AB400C32482 /* LocalAuthentication.framework */,
 				2376E41A817B10C2880FA404 /* Pods_DoorBell.framework */,
 			);

@@ -326,10 +326,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="calender" translatesAutoresizingMaskIntoConstraints="NO" id="MTo-2y-rAT">
-                                <rect key="frame" x="0.0" y="300" width="375" height="367"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -389,7 +385,6 @@ he back home</string>
     <resources>
         <image name="agenda" width="512" height="512"/>
         <image name="bg" width="512" height="911"/>
-        <image name="calender" width="512" height="501"/>
         <image name="chose" width="66" height="61"/>
         <image name="family" width="512" height="525"/>
         <image name="group" width="512" height="512"/>
