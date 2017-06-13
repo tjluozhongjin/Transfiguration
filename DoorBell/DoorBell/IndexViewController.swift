@@ -28,7 +28,7 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
   }
   
   @IBAction func chose(_ sender: UIButton) {
-    let alertController = UIAlertController(title: "chose photo", message: nil, preferredStyle: .actionSheet)
+    let alertController = UIAlertController(title: "Chose photo", message: nil, preferredStyle: .actionSheet)
     let alertActionLib = UIAlertAction(title: "Album", style: .default) { (_) in
       if #available(iOS 9.1, *) {
         self.imagePickerController.mediaTypes = [kUTTypeLivePhoto as String, kUTTypeImage as String]
@@ -75,7 +75,40 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
     picker.dismiss(animated: true, completion: nil)
   }
   
-  func touchIDopen() {
+  @IBAction func visitor(_ sender: UIButton) {
+    
+  }
+  
+  @IBAction func family(_ sender: UIButton) {
+    
+  }
+  
+  @IBAction func agenda(_ sender: UIButton) {
+    
+  }
+
+  @IBAction func open(_ sender: UIButton) {
+    let alertController = UIAlertController(title: "Chose method to unlock", message: nil, preferredStyle: .actionSheet)
+    let alertActiontouchID = UIAlertAction(title: "Touch ID", style: .default) { (_) in
+      self.touchIDOpen()
+    }
+    let alertActionQR = UIAlertAction(title: "QR Code", style: .default) { (_) in
+      self.qrCodeOpen()
+    }
+    let alertActionCancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+      self.dismiss(animated: true, completion: nil)
+    }
+    alertController.addAction(alertActiontouchID)
+    alertController.addAction(alertActionQR)
+    alertController.addAction(alertActionCancel)
+    self.present(alertController, animated: true, completion: nil)
+  }
+  
+  func qrCodeOpen() {
+    //to do
+  }
+  
+  func touchIDOpen() {
     let context = LAContext()
     var error: NSError?
     
@@ -94,22 +127,6 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
       })
     }
-  }
-  
-  @IBAction func visitor(_ sender: UIButton) {
-    
-  }
-  
-  @IBAction func family(_ sender: UIButton) {
-    
-  }
-  
-  @IBAction func agenda(_ sender: UIButton) {
-    
-  }
-
-  @IBAction func open(_ sender: UIButton) {
-    touchIDopen()
   }
   
 }

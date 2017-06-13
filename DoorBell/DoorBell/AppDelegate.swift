@@ -12,11 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  var indexViewController = IndexViewController()
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+    
     return true
+  }
+  
+  func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+    
+    let mainSB = UIStoryboard(name: "Main", bundle: nil)
+    indexViewController = mainSB.instantiateViewController(withIdentifier: "index") as! IndexViewController
+    indexViewController.touchIDOpen()
   }
 
   func applicationWillResignActive(_ application: UIApplication) {

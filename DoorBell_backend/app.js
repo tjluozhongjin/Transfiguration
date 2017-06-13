@@ -58,6 +58,21 @@ app.get('/getFile', function(req, res, next) {
   res.end();
 });
 
+var unlock = false;
+
+app.put('/unlock', function(req, res, next) {
+  res.end("test");
+  unlock = true;
+  setTimeout(setUnlockFalse, 10000);
+})
+
+function setUnlockFalse() {
+  unlock = false;
+}
+
+app.get('/getUnlock', function(req, res, next) {
+  res.json(unlock);
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
