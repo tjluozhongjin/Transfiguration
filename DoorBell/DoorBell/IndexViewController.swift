@@ -16,7 +16,6 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    touchID()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +75,7 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
     picker.dismiss(animated: true, completion: nil)
   }
   
-  func touchID() {
+  func touchIDopen() {
     let context = LAContext()
     var error: NSError?
     
@@ -87,8 +86,10 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
           // do the success thing
         } else {
           if (error as NSError?) != nil {
-            print("error")
-            // do the error thing
+            let alertController = UIAlertController(title: "Oops", message: "can not identify", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true, completion: nil)
           }
         }
       })
@@ -106,9 +107,10 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
   @IBAction func agenda(_ sender: UIButton) {
     
   }
-  
-  @IBAction func weather(_ sender: UIButton) {
-    
+
+  @IBAction func open(_ sender: UIButton) {
+    touchIDopen()
   }
+  
 }
 

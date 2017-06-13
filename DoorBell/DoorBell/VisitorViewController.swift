@@ -18,7 +18,6 @@ class VisitorViewController: UIViewController {
     super.viewDidLoad()
     navigationController?.setNavigationBarHidden(false, animated: true)
     
-    
     visitorView.scalesPageToFit = true
     visitorView.contentMode = .scaleAspectFit
     visitorView.loadRequest(URLRequest(url: URL(string: "http://60.205.206.174:3000/getFile")!))
@@ -45,6 +44,8 @@ class VisitorViewController: UIViewController {
           alertController.addAction(okAction)
           self.present(alertController, animated: true, completion: nil)
         }
+      } else {
+        print("Oops! There has some problems in network.")
       }
     }
   }
