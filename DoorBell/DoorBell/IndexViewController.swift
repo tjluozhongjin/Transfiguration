@@ -83,7 +83,7 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
       self.touchIDOpen()
     }
     let alertActionQR = UIAlertAction(title: "QR Code", style: .default) { (_) in
-      self.qrCodeOpen()
+      qrCodeOpen()
     }
     let alertActionCancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
       self.dismiss(animated: true, completion: nil)
@@ -94,15 +94,6 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
     self.present(alertController, animated: true, completion: nil)
   }
   
-  func unlockDoor() {
-    _ = Alamofire.request("http://60.205.206.174:3000/unlock", method: .put)
-    // do a unlock message
-  }
-  
-  func qrCodeOpen() {
-    //to do
-  }
-  
   func touchIDOpen() {
     let context = LAContext()
     var error: NSError?
@@ -110,7 +101,7 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
     if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
       context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Please unlock with fingerprints", reply: { (success, error) in
         if success {
-          self.unlockDoor()
+          unlockDoor()
         } else {
           if (error as NSError?) != nil {
             let alertController = UIAlertController(title: "Oops", message: "can not identify", preferredStyle: .alert)
@@ -122,6 +113,18 @@ class IndexViewController: UIViewController, UIImagePickerControllerDelegate, UI
       })
     }
   }
-  
+}
+
+func unlockDoor() {
+  let unlock: Parameters = [
+    "unlock": "true"
+  ]
+    _ = Alamofire.request("http://60.205.206.174:3000/unlock", method: .post, parameters: unlock, encoding: JSONEncoding.default)
+  //_ = Alamofire.request("http://10.0.1.12:3000/unlock", method: .post, parameters: unlock, encoding: JSONEncoding.default)
+  // do a unlock message
+}
+
+func qrCodeOpen() {
+  //to do
 }
 

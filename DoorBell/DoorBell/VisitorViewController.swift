@@ -53,6 +53,19 @@ class VisitorViewController: UIViewController {
     }
   }
   
+  @IBAction func unlockManually(_ sender: UIButton) {
+    unlockDoor()
+  }
+  
+  @IBAction func lockManually(_ sender: UIButton) {
+    let lock: Parameters = [
+      "unlock": "false"
+    ]
+    _ = Alamofire.request("http://60.205.206.174:3000/unlock", method: .post, parameters: lock, encoding: JSONEncoding.default)
+    // do a lock message
+  }
+  
+  
   func addAlert() {
     
   }
