@@ -35,7 +35,7 @@ let contentType = {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads')
+    cb(null, '../uploads')
   },
   filename: function (req, file, cb) {
     cb(null, file.fieldname + '.png')
@@ -52,7 +52,7 @@ app.post('/file', upload.single('file'), function(req, res, next) {
 
 app.get('/getFile', function(req, res, next) {
   res.setHeader("Content-Type", contentType);
-  var content =  fs.readFileSync('uploads/file.png', "binary");
+  var content =  fs.readFileSync('../uploads/file.png', "binary");
   res.writeHead(200, "Ok");
   res.write(content, "binary");
   res.end();
@@ -85,6 +85,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var present = [false, false, false, false];
+
+app.post('/present', function(res, req) {
+
+})
 
 var currentData;
 

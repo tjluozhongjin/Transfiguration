@@ -35,14 +35,17 @@ class VisitorViewController: UIViewController {
         similarity.textColor = UIColor.darkGray
         self.view.addSubview(similarity)
         
-        let similarityData: Double = Double(responseJson["confidence"].stringValue)!
-        if similarityData < 0.7 {
-          let alertController = UIAlertController(title: "Hola", message: "Having a new Stranger!", preferredStyle: .alert)
-          let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
-          let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
-          alertController.addAction(cancelAction)
-          alertController.addAction(okAction)
-          self.present(alertController, animated: true, completion: nil)
+        if let similarityData: Double = Double(responseJson["confidence"].stringValue) {
+          if similarityData < 0.7 {
+            let alertController = UIAlertController(title: "Hola", message: "Having a new Stranger!", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
+            alertController.addAction(cancelAction)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+          }
+        } else {
+          print("Oops! Could not get confidence data.")
         }
       } else {
         print("Oops! There has some problems in network.")

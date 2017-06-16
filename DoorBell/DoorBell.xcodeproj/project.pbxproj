@@ -31,6 +31,7 @@
 		2F0C50201EE38BED00035DCA /* AgendaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		2F2AB3C11EE32CD200F78862 /* VisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorViewController.swift; sourceTree = "<group>"; };
 		2F2AB3C31EE32D4100F78862 /* FamilyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
+		2F7325B51EF0619A00B3DE7D /* DoorBell.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DoorBell.entitlements; sourceTree = "<group>"; };
 		2F9F14F41EED9AB400C32482 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		2FC208531EF01F69009CF2D8 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		2FC208541EF01F69009CF2D8 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
@@ -91,6 +92,7 @@
 		2FDEA1CE1EE3162C005F0052 /* DoorBell */ = {
 			isa = PBXGroup;
 			children = (
+				2F7325B51EF0619A00B3DE7D /* DoorBell.entitlements */,
 				2F0C501C1EE3494F00035DCA /* OverlayView.xib */,
 				2F0C501E1EE3498600035DCA /* MemberOverlayView.swift */,
 				CB5AA0761EE3232C008EF11E /* Assets.xcassets */,
@@ -152,6 +154,14 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = G4WT85FFHH;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HomeKit = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

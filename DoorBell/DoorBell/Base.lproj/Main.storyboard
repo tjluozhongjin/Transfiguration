@@ -26,7 +26,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="group"/>
                                 <connections>
-                                    <action selector="visitor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oga-Wo-woV"/>
                                     <segue destination="gcB-H9-GOk" kind="show" id="oPs-tD-5rr"/>
                                 </connections>
                             </button>
@@ -35,7 +34,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="family"/>
                                 <connections>
-                                    <action selector="family:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lzI-Rb-PGJ"/>
                                     <segue destination="psw-Dd-fnD" kind="show" id="NCb-5t-y3Z"/>
                                 </connections>
                             </button>
@@ -44,7 +42,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="agenda"/>
                                 <connections>
-                                    <action selector="agenda:" destination="BYZ-38-t0r" eventType="touchUpInside" id="feX-QT-26q"/>
                                     <segue destination="lF6-Ci-Hyy" kind="show" id="aeg-40-Ree"/>
                                 </connections>
                             </button>
