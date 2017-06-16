@@ -8,6 +8,8 @@
 
 import UIKit
 import Koloda
+import Alamofire
+import SwiftyJSON
 
 private var memberNo: Int = 4
 
@@ -23,6 +25,8 @@ class FamilyViewController: UIViewController {
     
     familyMember.delegate = self
     familyMember.dataSource = self
+    
+    updatePresent()
   }
   
   fileprivate var dataSource: [UIImage] = {
@@ -33,16 +37,21 @@ class FamilyViewController: UIViewController {
     return array
   }()
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  
   @IBAction func remindBtn(_ sender: UIButton) {
     sender.isSelected = !sender.isSelected
   }
   
-
+  func updatePresent() {
+    Alamofire.request("http://60.205.206.174:3000/getPresent").responseString { (response) in
+      let present = JSON(parseJSON: response.value!)
+      for i in 0..<memberNo {
+        if present[i] == true {
+          print("hello")
+          // todo present in the UI
+        }
+      }
+    }
+  }
 }
 
 extension FamilyViewController: KolodaViewDelegate, KolodaViewDataSource {

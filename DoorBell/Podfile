@@ -8,6 +8,7 @@ target 'DoorBell' do
   pod 'Koloda', '~> 4.0'
   pod 'FSCalendar'
   pod 'SwiftyJSON'
+  pod 'MBProgressHUD', '~> 1.0.0'
   # Pods for DoorBell
 
 end

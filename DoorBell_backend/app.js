@@ -88,8 +88,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var present = [false, false, false, false];
 
-app.post('/present', function(res, req) {
+app.post('/present', function(req, res) {
+  for(var i=0; i<4; i++) {
+    present[i] = req.body[i];
+  }
+  res.send(present);
+})
 
+app.get('/getPresent', function(req, res) {
+  res.json(present);
 })
 
 var currentData;
