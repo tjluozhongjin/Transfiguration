@@ -60,17 +60,12 @@ app.get('/getFile', function(req, res, next) {
 
 var unlock = false;
 
-app.put('/unlock', function(req, res, next) {
-  res.end("test");
-  unlock = true;
-  setTimeout(setUnlockFalse, 10000);
-})
-
 function setUnlockFalse() {
   unlock = false;
+  console.log(unlock);
 }
 
-app.get('/getUnlock', function(req, res, next) {
+app.get('/getUnlock', function(req, res) {
   res.json(unlock);
 })
 
@@ -86,9 +81,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+app.post('/unlock', function(req, res) {
+  unlock = (req.body["unlock"] == 'true');
+  console.log(req.body);
+  console.log(unlock);
+  res.end("success");
+  setTimeout(setUnlockFalse, 10000);
+})
+
 var present = [false, false, false, false];
 
 app.post('/present', function(req, res) {
+  console.log(req.body);
   for(var i=0; i<4; i++) {
     present[i] = req.body[i];
   }
