@@ -12,6 +12,7 @@
 		2F0C50211EE38BED00035DCA /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0C50201EE38BED00035DCA /* AgendaViewController.swift */; };
 		2F2AB3C21EE32CD200F78862 /* VisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AB3C11EE32CD200F78862 /* VisitorViewController.swift */; };
 		2F2AB3C41EE32D4100F78862 /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AB3C31EE32D4100F78862 /* FamilyViewController.swift */; };
+		2F5BB2F11EF4E070008D14B1 /* MMSlidingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5BB2F01EF4E070008D14B1 /* MMSlidingButton.swift */; };
 		2F9F14F51EED9AC300C32482 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F9F14F41EED9AB400C32482 /* LocalAuthentication.framework */; };
 		2FC208551EF01F69009CF2D8 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC208531EF01F69009CF2D8 /* EventKit.framework */; };
 		2FC208561EF01F69009CF2D8 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC208541EF01F69009CF2D8 /* EventKitUI.framework */; };
@@ -31,6 +32,7 @@
 		2F0C50201EE38BED00035DCA /* AgendaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaViewController.swift; sourceTree = "<group>"; };
 		2F2AB3C11EE32CD200F78862 /* VisitorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorViewController.swift; sourceTree = "<group>"; };
 		2F2AB3C31EE32D4100F78862 /* FamilyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
+		2F5BB2F01EF4E070008D14B1 /* MMSlidingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMSlidingButton.swift; sourceTree = "<group>"; };
 		2F7325B51EF0619A00B3DE7D /* DoorBell.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DoorBell.entitlements; sourceTree = "<group>"; };
 		2F9F14F41EED9AB400C32482 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		2FC208531EF01F69009CF2D8 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -94,13 +96,14 @@
 			children = (
 				2F7325B51EF0619A00B3DE7D /* DoorBell.entitlements */,
 				2F0C501C1EE3494F00035DCA /* OverlayView.xib */,
-				2F0C501E1EE3498600035DCA /* MemberOverlayView.swift */,
 				CB5AA0761EE3232C008EF11E /* Assets.xcassets */,
 				2FDEA1CF1EE3162C005F0052 /* AppDelegate.swift */,
 				2F2AB3C31EE32D4100F78862 /* FamilyViewController.swift */,
 				2FDEA1D11EE3162C005F0052 /* IndexViewController.swift */,
 				2F2AB3C11EE32CD200F78862 /* VisitorViewController.swift */,
 				2F0C50201EE38BED00035DCA /* AgendaViewController.swift */,
+				2F5BB2F01EF4E070008D14B1 /* MMSlidingButton.swift */,
+				2F0C501E1EE3498600035DCA /* MemberOverlayView.swift */,
 				2FDEA1D31EE3162C005F0052 /* Main.storyboard */,
 				2FDEA1D81EE3162C005F0052 /* LaunchScreen.storyboard */,
 				2FDEA1DB1EE3162C005F0052 /* Info.plist */,
@@ -252,6 +255,7 @@
 			files = (
 				2FDEA1D21EE3162C005F0052 /* IndexViewController.swift in Sources */,
 				2F2AB3C21EE32CD200F78862 /* VisitorViewController.swift in Sources */,
+				2F5BB2F11EF4E070008D14B1 /* MMSlidingButton.swift in Sources */,
 				2F0C50211EE38BED00035DCA /* AgendaViewController.swift in Sources */,
 				2F2AB3C41EE32D4100F78862 /* FamilyViewController.swift in Sources */,
 				2F0C501F1EE3498600035DCA /* MemberOverlayView.swift in Sources */,
