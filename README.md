@@ -3,7 +3,7 @@
 
 ## Bella Bell
 
-an smart bell for IoT and smart home supporting iOS platform to controll your door and remind you with calendar and to-do list.
+a smart bell for IoT and smart home supporting iOS platform to controll your door and remind you with calendar and to-do list.
 
 ![iOS](https://img.shields.io/badge/iOS-10.3-brightgreen.svg) ![Swift](https://img.shields.io/badge/Swift-3-blue.svg) ![Node](https://img.shields.io/badge/Node-8.0.0-orange.svg) ![license](https://img.shields.io/badge/License-MIT-lightgrey.svg)
 
@@ -50,23 +50,22 @@ brief introduction
 
 #### Cognitive Services
 
-As we can see as follow, the whole architecture include Raspberry PI, Camera, Cognitive Services, Electrical Machine, Voice Box and Door. The Raspberry PI control the camera, when someone take a photo using camera, the Raspberry PI will send photo to Face Recognition (detect & Compare) and send to emotion recognition.Then, The Face Recognition will inform Electrical Machine to open door, and the Emotion Recognition will inform Voice Box to play audio.
+As we can see as following image, the whole architecture includes Raspberry PI, Camera, Cognitive Services, Electrical Machine, Voice Box and Door. The Raspberry PI controls the camera, when someone takes a photo using camera, the Raspberry PI will send the photo to Face Recognition (Detect & Compare) and Emotion Recognition. Then, the Face Recognition will inform Electrical Machine to open the door, and the Emotion Recognition will inform Voice Box to play audio.
 
-![architecture](/Users/luozhongjin/Transfiguration/photo/architecture.png)
+![architecture](Res/architecture.png)
 
 ##### Opening Door Using Face
 
-In Bella Bell, the **first lightspot** is that we can open our room door using face. To achieve this, what we do as follows :
+In Bella Bell, the first lightspot is that we can open our room door using our face. To achieve this, what we do shows as follows :
 
-- Face Detect
-- Face Compare
+- Face Detection
+- Face Comparison
 
-###### Face Detect
+###### Face Detection
 
-In order to open room door using face, we need to stored all our roommate's photos in database and  detect the face of these photos to get **FaceID Aarry** which represent the face of different photos and will be used in Face Compare. Then, we will capture a new photo using camera when someone want to open door using face, and the new photo also need to get **FaceID** which will be also used in Face Compare. To achieve this, we need to call cognitive services API. The first time we using Microsoft Cognitive Services, because it is more authoritative. Code as follow: 
+In order to open the door using our own face, we need to stored all our roommates' photos in database and detect the face of these photos to get ``FaceID Array`` which represents the face of different photos and will be used in Face Comparison. Then, we will capture a new photo using camera when someone wants to open the door using his face, and the new photo also need to get ``FaceID`` which will also be used in Face Comparison. To achieve this, we need to call Cognitive Services API. The first time we used  Microsoft Cognitive Services, accociated code shows as follows: 
 
-```
-......
+```python
 def get_face_values(file_location):
 	url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
 	key = 'ca99486b8b8744ba96d756e105c8275c'
@@ -76,13 +75,11 @@ def get_face_values(file_location):
 		'Content-Type': 'application/octet-stream'
 		}
 	return requests.request("POST", url=url, data=data, headers=headers).json()
-......
 ```
 
-But in the beta phase, when we try to using face to open our door, we found that the dectect process is so slow, which make us wait for a long time to get the door open, it make us impatient. After analyzing, we found that it is because that Microsoft server set up in foreign countries, which make the dectect process slow. So, we changed to use Face++ Cognitive Services whose server is in China. Code as follows:
+However, in the beta version, when we try to open our door, we found that the dectection process is so slow, which make us wait for a long time to get the door opened, it make us impatient. After analyzing, we found the reason is that Microsoft server set up in foreign countries, which make the dectect process slow. So, we changed to use Face++ Cognitive Services. The code shows as follows:
 
-```
-......
+```python
 def detect(imageFile):
     key = "LiRb3yg8xNdZ26KaaGWpBvocRntnNVpy"
     secret = "sfzfdDGKizGtGy9l-1c6-Yys9lz1Etmq"
@@ -99,17 +96,15 @@ def detect(imageFile):
     }
     res=requests.post(url,params=params,files=files).json()
     print res
-......
 ```
 
-After changing , we found that the speed of Face Detect improve visibly, which make us no longer impatient.
+As a result, we found that the speed of Face Detection improves visibly.
 
-###### Face Compare
+###### Face Comparison
 
-After Face Dectect, the next step is comparing the photo capture from camera with photos stored in the database. To achieve this, we need to post FaceID one (represent the photo from camera) and FaceID two(represent one of photos stored in the database), then we will get the similarity back. Our rule is that if the similarity is greater than 70.0%, the door will open. Code using Microsoft Services as follow:
+After Face Dectection, the next step is to compare the photo captured by camera with photos stored in the database. We need to post FaceID-one(representing the photo from camera) and FaceID-two(representing one of photos stored in the database), then we will get the similarity back. Our rule is that if the similarity is greater than 70.0%, the door will open. Code using Microsoft Services as follow:
 
-```
-......
+```python
 def get_compare_value(id1):
     headers = {
     'Content-Type': 'application/json',
@@ -124,13 +119,11 @@ def get_compare_value(id1):
     data = response.read()
     dataJson = json.loads(data)
     return (dataJson)
-......
 ```
 
-As same as Face Detect Process, we change to use Face++ Cognitive Services later to compare face. Code as follow:
+As same as Face Detection Process, we changed to use Face++ Cognitive Services later for effectiveness:
 
-```
-......
+```python
 def compare(face_token1,face_token2):
     url = 'https://api-cn.faceplusplus.com/facepp/v3/compare'
     params = {
@@ -144,13 +137,11 @@ def compare(face_token1,face_token2):
     b = time.time()
     j = r.json()
     return j
-......
 ```
 
-But afterwards, we found that the time of posting  one photo to Face++ server and the time of posting two photo to Face++ server are little difference. Therefore, in order to ensure the reliability and persistence of our photo, and make the code more concise, we use the following code instead, this code will change the two step to one step.
+Afterwards, we found that the time of posting a photo to Face++ Server and the time posting two photos to Face++ Server are a little difference. Therefore, in order to ensure the reliability and persistence of our photos and make the code more concise, we use the following code instead, this code will change the two steps into one step.
 
-```
-......
+```python
 def compare(imageFile1,imageFile2):
     url = 'https://api-cn.faceplusplus.com/facepp/v3/compare'
     params = {
@@ -168,14 +159,13 @@ def compare(imageFile1,imageFile2):
     b = time.time()
     j = r.json()
     return j
-......
 ```
 
 ###### Main Business Logic
 
-We have stored all of our roommate's photos in database in Raspberry PI, and in the business logic we will traverse database to compare the photos capture from camera with all the photos in database, and if similarity is greater than 70.0%, Bella Bell will regard you as host, and then will open door for you, recognize your emotion to play music for you(which will be introduce later). Logic code as follow:
+We have stored all of our roommates' photos in database in Raspberry PI, and in the business logic we will traverse database to compare the photos captured by camera with all the photos in database. If similarity is greater than 70.0%, Bella Bell will regard you as host, and then will open door for you, recognize your emotion to play music for you(which will be introduce later). Here is the Logic code:
 
-```
+```python
 def deal_back(photo1,photo2):
     name = -1
     confidence=0
@@ -219,15 +209,14 @@ def deal_no_host():
 
 ##### Play Audio According To Emotion
 
-Can you imagine? When you achieve a small goal and go back home, you hear a happy song immediately after you open the door. And when you are sad and go back, you hear a joy after you open the door. It is so warm. In our Bella Bell, the **second lightspot** is that when you open door using face, Bella Bell will recognize your emotion and play different audio for you. To achieve this, we do as follows:
+Can you imagine? When you achieve a small goal and go back home, you will hear a happy song immediately after you open the door. And when you are sad, it will play a joke after opening the door. It is so warm. In our Bella Bell, the second lightspot is that when you open door using your face, Bella Bell will recognize your emotion and play different audios for you. The workflow is as follows:
 
-- recognize emotion
-- play audio
+- Recognize Emotion
+- Play Audio
 
-In the first step, we use Face++ Emotion API to get the emotion value, code as follow:
+In the first step, we use Face++ Emotion API to get the emotion value:
 
-```
-......
+```python
 def analyze(face_token):
 	url = 'https://api-cn.faceplusplus.com/facepp/v3/face/analyze'
     params = {
@@ -238,13 +227,11 @@ def analyze(face_token):
     }
     res=requests.post(url,params=params).json()
     return res
-......
 ```
 
 In the second step, we have the following code in the ``deal.py``:
 
-```
-......
+```python
 def deal_emotion(emotionJson):
     happiness = emotionJson['happiness']
     if happiness > 10.0:
@@ -258,15 +245,13 @@ def deal_emotion(emotionJson):
         time.sleep(3.5)
         os.system('mpg123 %s'%'sad.mp3')
     print emotionJson['happiness']
-......
 ```
 
 ##### Record Dormitory Status 
 
-There is no doubt that sometimes we forget bringing our book when we are hurry to the classroom. Bella Bell allows you check which roommate is in the room, so that you can ask him to bring you book when he go to the classroom.Due to our roommate use the same router，that is to say our phones are in the same local area network after connecting to the network. Therefore, we use  ``ping ip``  to confirm whether someone is in the room. Code as follows:
+There is no doubt that sometimes we forget bringing our books when we are hurry to the classroom. Bella Bell allows you to check who is in the room, so that you can ask him to bring you book when he go to the classroom. Due to our roommates use the same router, that is to say our phones are in the same Local Area Network after connecting to the network. So we use ping the IP Address to confirm whether someone is in the room:
 
-```
-......
+```python
 def postPresent():
     j = 0
     for i in hostnames:
@@ -287,19 +272,17 @@ def postPresent():
         '3':present[3]
     }
     r = requests.post(url,headers = headers,data = json.dumps(d))
-......
 ```
 
 #####  Other Function
 
-In our project, there are some functional module we have achieved part of it, but due to the function are imperfect and user experience is poor, we haven't added to Bella Bell. 
+In our project, there are some functional modules we have achieved part of it, but due to the function are imperfect and user experience is not so good, we haven't added to Bella Bell. You can see more in the Under Construction Part to follow our develop schedule.
 
 ###### Smart Reminder
 
-Can you imagine? When you leave the room, Bella Bell will remind you something important, such as weather, assignment deadline and so on. Although we haven't decided how to judge that a person want to leave, we have achieve the Text To Speech module. Owing to we use Raspberry PI to control our door and the voice of text to speech native libraries of linux sounds so bad, we decide to use BaiDu Text To Speech API. Code as follow: 
+When you leave the room, Bella Bell will remind you something important, such as today's weather, assignment deadline and so on. Although we haven't decided how to judge that a person want to leave, we have achieve the Text To Speech module. Owing to we use Raspberry PI to control our door and the voice of text to speech native libraries of linux sounds so bad, we decide to use BaiDu Text To Speech API:
 
-```
-......
+```python
 def get_baidu_voice(text, lang="zh", speed=5, pitch=5, volumn=5, person=0):
 	url = "http://tsn.baidu.com/text2audiotex=%s&lan=%s&cuid=%s&ctp=1&tok=%s"
 			+ "&spd=%d&pit=%d&vol=%d&per=%d"
@@ -311,15 +294,13 @@ def get_baidu_voice(text, lang="zh", speed=5, pitch=5, volumn=5, person=0):
         fw = open(os.getcwd() + "/tts.mp3", "wb")
         fw.write(r.content)
         fw.close()
-......
 ```
 
 ###### Speech Control
 
-In Bella Bell, we hope that we can control Raspberry PI using voice, so that we can use voice to open the door, to instruct Bella Bell to play song and so on.  But we found that the environmental noise make this function play a bad performance,  We haven't added to Bella Bell. It need to be improved before using. Some code of this module as follow (using Microsoft Bing Speech API):
+In Bella Bell, we hope that we can control Raspberry PI using voice to open the door and instruct Bella Bell to play song and so on. However, we found that the environmental noise make this function plays a bad performance, so it is still in the long term plan. Some code of this module show as follows(using Microsoft Bing Speech API):
 
-```
-......
+```python
 def speech_to_text():
     AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "english.wav")
     # obtain audio from the microphone
@@ -331,7 +312,6 @@ def speech_to_text():
     text = r.recognize_bing(audio, key=BING_KEY)
     print("Microsoft Bing Voice Recognition thinks you said " + text)
     return text
- ......
 ```
 
 #### Hardware
@@ -362,6 +342,7 @@ YouTube
 ### Under Construction
 
 - [x] Adapt for different models
+- [ ] Add Apple Watch App
 
 ### Contribution
 
@@ -369,8 +350,9 @@ YouTube
   - Yang LI
 - Back-end(Node.js)
   - Yang LI
-- Hardware
+- Cognitive Services
   - Zhongjin LUO
+- Hardware
   - Guohui YANG
 - UI Design
   - Yirui WANG
