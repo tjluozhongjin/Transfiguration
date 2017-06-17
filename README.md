@@ -5,7 +5,7 @@
 
 a smart bell for IoT and smart home supporting iOS platform to controll your door and remind you with calendar and to-do list.
 
-![iOS](https://img.shields.io/badge/iOS-10.3-brightgreen.svg) ![Swift](https://img.shields.io/badge/Swift-3-blue.svg) ![Node](https://img.shields.io/badge/Node-8.0.0-orange.svg) ![license](https://img.shields.io/badge/License-MIT-lightgrey.svg)
+![iOS](https://img.shields.io/badge/iOS-10.3-brightgreen.svg) ![Swift](https://img.shields.io/badge/Swift-3-blue.svg) ![Node](https://img.shields.io/badge/Node-8.0.0-orange.svg) ![Python](https://img.shields.io/badge/Python-2.7.9-yellow.svg) ![Raspberry PI](https://img.shields.io/badge/Raspberry%20PI-3B-ff69b4.svg) ![license](https://img.shields.io/badge/License-MIT-lightgrey.svg)
 
 ### How to Run
 
@@ -50,7 +50,7 @@ brief introduction
 
 #### Cognitive Services
 
-As we can see as following image, the whole architecture includes Raspberry PI, Camera, Cognitive Services, Electrical Machine, Voice Box and Door. The Raspberry PI controls the camera, when someone takes a photo using camera, the Raspberry PI will send the photo to Face Recognition (Detect & Compare) and Emotion Recognition. Then, the Face Recognition will inform Electrical Machine to open the door, and the Emotion Recognition will inform Voice Box to play audio.
+As we can see as following image, the whole architecture includes Raspberry PI, Camera, Cognitive Services, Electrical Machine, Voice Box and Door. The Raspberry PI controls the camera, when someone takes a photo using camera, the Raspberry PI will send the photo to Face Recognition (Detection & Comparison) and Emotion Recognition. Then, the Face Recognition will inform Electrical Machine to open the door, and the Emotion Recognition will inform Voice Box to play audio.
 
 ![architecture](Res/architecture.png)
 
@@ -341,7 +341,7 @@ YouTube
 
 ### Under Construction
 
-- [x] Adapt for different models
+- [x] Adapt for different models(now supporting SE and 7's size)
 - [ ] Add Apple Watch App
 
 ### Contribution
