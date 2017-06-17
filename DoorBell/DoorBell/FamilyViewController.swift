@@ -16,6 +16,16 @@ private var memberNo: Int = 4
 class FamilyViewController: UIViewController {
   @IBOutlet weak var remindBtn: UIButton!
   @IBOutlet weak var familyMember: KolodaView!
+  @IBOutlet weak var avatarImage0: UIImageView!
+  @IBOutlet weak var avatarImage1: UIImageView!
+  @IBOutlet weak var avatarImage2: UIImageView!
+  @IBOutlet weak var avatarImage3: UIImageView!
+  @IBOutlet weak var avatarLabel0: UILabel!
+  @IBOutlet weak var avatarLabel1: UILabel!
+  @IBOutlet weak var avatarLabel2: UILabel!
+  @IBOutlet weak var avatarLabel3: UILabel!
+  var avatarImage = [UIImageView]()
+  var avatarLabel = [UILabel]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,6 +35,9 @@ class FamilyViewController: UIViewController {
     
     familyMember.delegate = self
     familyMember.dataSource = self
+    
+    avatarImage = [avatarImage0, avatarImage1, avatarImage2, avatarImage3]
+    avatarLabel = [avatarLabel0, avatarLabel1, avatarLabel2, avatarLabel3]
     
     updatePresent()
   }
@@ -45,9 +58,12 @@ class FamilyViewController: UIViewController {
     Alamofire.request("http://60.205.206.174:3000/getPresent").responseString { (response) in
       let present = JSON(parseJSON: response.value!)
       for i in 0..<memberNo {
-        if present[i] == true {
-          print("hello")
-          // todo present in the UI
+        if present[i] == "true" {
+          self.avatarImage[i].alpha = 1
+          self.avatarLabel[i].textColor = UIColor.black
+        } else {
+          self.avatarImage[i].alpha = 0.4
+          self.avatarLabel[i].textColor = UIColor.lightGray
         }
       }
     }

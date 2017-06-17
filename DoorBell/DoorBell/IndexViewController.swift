@@ -119,9 +119,7 @@ func unlockDoor() {
   let unlock: Parameters = [
     "unlock": "true"
   ]
-    _ = Alamofire.request("http://60.205.206.174:3000/unlock", method: .post, parameters: unlock, encoding: JSONEncoding.default)
-  //_ = Alamofire.request("http://10.0.1.12:3000/unlock", method: .post, parameters: unlock, encoding: JSONEncoding.default)
-  // do a unlock message
+  _ = Alamofire.request("http://60.205.206.174:3000/unlock", method: .post, parameters: unlock, encoding: JSONEncoding.default)
 }
 
 func qrCodeOpen() {
