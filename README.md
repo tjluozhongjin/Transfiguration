@@ -3,7 +3,7 @@
 
 ## Bella Bell
 
-a smart bell for IoT and smart home supporting iOS platform to controll your door and remind you with calendar and to-do list.
+an smart bell for IoT and smart home supporting iOS platform to controll your door and remind you with calendar and to-do list.
 
 ![iOS](https://img.shields.io/badge/iOS-10.3-brightgreen.svg) ![Swift](https://img.shields.io/badge/Swift-3-blue.svg) ![Node](https://img.shields.io/badge/Node-8.0.0-orange.svg) ![license](https://img.shields.io/badge/License-MIT-lightgrey.svg)
 
