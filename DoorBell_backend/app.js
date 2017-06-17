@@ -81,12 +81,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*
+var deadlock = true;
+
+app.post('/deadlock', function(req, res) {
+  deadlock = (req.body['deadlock'] == 'true');
+  console.log(deadlock);
+  res.end('success');
+})
+
+app.get('/getDeadlock', function(req, res) {
+  res.json(deadlock);
+})
+*/
 
 app.post('/unlock', function(req, res) {
-  unlock = (req.body["unlock"] == 'true');
+  unlock = (req.body['unlock'] == 'true');
   console.log(req.body);
   console.log(unlock);
-  res.end("success");
+  res.end('success');
   setTimeout(setUnlockFalse, 10000);
 })
 
