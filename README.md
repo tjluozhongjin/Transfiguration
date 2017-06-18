@@ -93,7 +93,7 @@ To run the node.js app in server as daemon, we use [forever](https://github.com/
 
 #### Cognitive Services
 
-As we can see as following image, the whole architecture includes Raspberry PI, Camera, Cognitive Services, Electrical Machine, Voice Box and Door. The Raspberry PI controls the camera, when someone takes a photo using camera, the Raspberry PI will send the photo to Face Recognition (Detection & Comparison) and Emotion Recognition. Then, the Face Recognition will inform Electrical Machine to open the door, and the Emotion Recognition will inform Voice Box to play audio.
+As we can see as following image, the whole architecture includes Raspberry PI, Camera, Cognitive Services, Motor, Spearker and Door. The Raspberry PI controls the camera, when someone takes a photo using camera, the Raspberry PI will send the photo to Face Recognition (Detection & Comparison) and Emotion Recognition. Then, the Face Recognition will inform Motor to open the door, and the Emotion Recognition will inform Voice Box to play audio.
 
 ![architecture](Res/architecture.png)
 
