@@ -20,7 +20,7 @@ or manually:
   - Install node modules via npm
   - Start the server via forever
 - Hardware
-  - ​
+  - Set up the hardware facilities properly according to your actual condition
 
 ### Background
 
@@ -360,7 +360,150 @@ def speech_to_text():
 
 #### Hardware
 
+Peripheral equipment like camera and step motor are under control of Raspberry Pi. 
 
+##### Camera
+
+For simplicity, here we use Pi Camera since it is well supported by Raspberry Pi with library functions. Also, connecting the camera to Pi is quite easy. With this camera we can simply take photos by following few lines of code:
+
+```python
+from picamera import PiCamera
+import time
+
+camera = PiCamera()
+#camera.start_preview()
+time.sleep(2)
+camera.capture("/home/pi/face.jpg")
+#camera.stop_preview()
+camera.close()
+```
+
+##### Matrix Keypad
+
+It is unrealistic to take photos all the time. So there must be something like a trigger to decide when should the camera take photos and detect faces. Thus we make use of a 4*4 matrix keypad. 
+
+![](Res\4x4-matrix-keypad.png)
+
+In our solution, C1~C4 is to physical pin 32, 36, 38, 40 and R1~R4 is to physical pin 31, 33, 35, 37 respectively.
+
+To scan a pressed button, we first set all columns as output low and all rows as input pull-up. If a key was pushed, the corresponding row will be set to low electric level, then we can know which row was pressed. 
+
+At this moment, convert columns to input pull-down and switch the selected row to output high. Scan four columns again for the high electric level one, and that is exactly the selected column. By doing this we can find out which key was pressed.
+
+```python
+def getKey(self):
+    for j in range(len(self.COLUMN)):
+		GPIO.setup(self.COLUMN[j],GPIO.OUT)
+		GPIO.output(self.COLUMN[j],GPIO.LOW)
+	for i in range(len(self.ROW)):
+		GPIO.setup(self.ROW[i],GPIO.IN,pull_up_down=GPIO.PUD_UP)
+
+    rowVal = -1
+	for i in range(len(self.ROW)):
+		tmpRead = GPIO.input(self.ROW[i])
+        if tmpRead == 0:
+            rowVal = i
+
+    if rowVal < 0 or rowVal > 3:
+		self.exit()
+		return
+
+    for j in range(len(self.COLUMN)):
+		GPIO.setup(self.COLUMN[j],GPIO.IN,pull_up_down=GPIO.PUD_DOWN)
+
+	GPIO.setup(self.ROW[rowVal],GPIO.OUT)
+	GPIO.setup(self.ROW[rowVal],GPIO.HIGH)
+
+	colVal = -1
+	for j in range(len(self.COLUMN)):
+		tmpRead = GPIO.input(self.COLUMN[j])
+		if tmpRead == 1:
+			colVal = j
+
+    if colVal < 0 or colVal > 3:
+		self.exit()
+		return
+	
+    self.exit()
+	return self.KEYPAD[rowVal][colVal]
+```
+
+Eight GPIO pins would be occupied. See detailed code in `keypad.py` , check for 
+
+##### Mechanical Transmission
+
+Restricted by rules of school, we are not going to damage the door like punching on it. A compromising way is to used some pulley and level members to pull our door handle.
+
+The core part is a step motor, driven by ULN2003 and connected to Pi by GPIO. To make it rotate, we can set four pins' mode as output, then let them output high level in turn. We can also control rotation speed by setting delay time as we like. Here are main part of code:
+
+```python
+IN1 = 11    # pin11  
+IN2 = 12  
+IN3 = 15 
+IN4 = 16 
+def setStep(w1, w2, w3, w4):  
+    GPIO.output(IN1, w1)  
+    GPIO.output(IN2, w2)  
+    GPIO.output(IN3, w3)  
+    GPIO.output(IN4, w4)  
+
+def forward(delay, steps):    
+    for i in range(0, steps):  
+        setStep(1, 0, 0, 0)  
+        time.sleep(delay)  
+        setStep(0, 1, 0, 0)  
+        time.sleep(delay)  
+        setStep(0, 0, 1, 0)  
+        time.sleep(delay)  
+        setStep(0, 0, 0, 1)  
+        time.sleep(delay)  
+        
+def loop():  
+    for i in range (0,1):
+        forward(0.005, 700)  # 512 steps --- 360 angle
+```
+
+Setting up the other mechanical components depends on the actual environment. In fact, use electromagnetic locks would be a better choice.
+
+##### USB Microphone
+
+A microphone can be easily connected to Pi with USB cable. We can use library `pyaudio` to record sounds.
+
+```python
+import pyaudio
+import wave
+
+def RecordSub(Channels, Rate, Chunk, Input_device, Record_seconds, FileName):
+	p = pyaudio.PyAudio()
+	stream = p.open(format = pyaudio.paInt16,
+            channels = Channels,
+            rate = Rate,
+            #input_device = Input_device,
+            input = True,
+            frames_per_buffer = Chunk)
+
+    frames = []
+    for i in range(0, int(Rate / Chunk * Record_seconds)):
+    	data = stream.read(Chunk)
+        frames.append(data)
+
+        stream.stop_stream()
+        stream.close()
+        p.terminate()
+
+        wf = wave.open(FileName, 'wb')
+        wf.setnchannels(Channels)
+        wf.setsampwidth(p.get_sample_size(pyaudio.paInt16))
+        wf.setframerate(Rate)
+        wf.writeframes(b''.join(frames))
+        wf.close()
+
+    return 'done'
+```
+
+##### Power Supply
+
+We did not realized how important the power supply is until we found that the motor did not have enough torque to pull the level up to the angle we want. And it's just because we use a 5-meter-long extension USB cable as power cable. What's worse, if we can not meet the current demand of 2A which the Raspberry Pi needs, the Pi may crash and reboot under high load work condition.
 
 ### Demo
 
@@ -381,7 +524,7 @@ def speech_to_text():
   - Allow you to check who is at home at anytime and anywhere
   - The door can greet you when you back home
 - Disadvantages 
-  - Face Cognition is not safty enough since you may can use a photo in front of the camera.
+  - Face Cognition is not safety enough since you may can use a photo in front of the camera.
 
 ### Improvements
 
