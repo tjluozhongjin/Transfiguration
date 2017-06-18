@@ -51,13 +51,12 @@ or manually:
 ### Implemented Requirements
 
 - Face Cognition
+- Speech Cognition
 - IoT Project
 
 ### Structures & Modules
 
-brief introduction 
-
-#### Architecture
+Here is the whole architecture, App based on iOS platform is the boundary Class to the User, and it can only communicate with the back-end on the Ali Cloud. Thus, Ali Clound will communicate with the Hardware especially the Raspberry PI, it like the center of hardware part, and is responsible for the camera, face detection and comparison, emotion recognition.
 
 ![wholeArchitecture](Res/wholeArchitecture.png)
 
@@ -428,7 +427,7 @@ def getKey(self):
 	return self.KEYPAD[rowVal][colVal]
 ```
 
-Eight GPIO pins would be occupied. See detailed code in `keypad.py` , check for 
+Eight GPIO pins would be occupied. See detailed code in `keypad.py`.
 
 ##### Mechanical Transmission
 
@@ -509,7 +508,7 @@ We did not realized how important the power supply is until we found that the mo
 
 #### Video
 
-[YouTube]()
+YouTube
 
 #### Screenshot
 
@@ -535,6 +534,7 @@ We did not realized how important the power supply is until we found that the mo
 ### Under Construction
 
 - [x] Adapt for different models(now supporting SE and 7's size)
+- [x] Add Speech Cognition Service
 - [ ] Add Apple Watch App
 
 ### Contribution
