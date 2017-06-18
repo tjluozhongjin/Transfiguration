@@ -381,9 +381,9 @@ camera.close()
 
 It is unrealistic to take photos all the time. So there must be something like a trigger to decide when should the camera take photos and detect faces. Thus we make use of a 4*4 matrix keypad. 
 
-![](Res\4x4-matrix-keypad.png)
+![](Res/4x4-matrix-keypad.png)
 
-In our solution, C1~C4 is to physical pin 32, 36, 38, 40 and R1~R4 is to physical pin 31, 33, 35, 37 respectively.
+In our solution, C1-C4 is to physical pin 32, 36, 38, 40 and R1-R4 is to physical pin 31, 33, 35, 37 respectively.
 
 To scan a pressed button, we first set all columns as output low and all rows as input pull-up. If a key was pushed, the corresponding row will be set to low electric level, then we can know which row was pressed. 
 
