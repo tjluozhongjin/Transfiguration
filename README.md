@@ -16,10 +16,11 @@ or manually:
 - Front-end
   - Install third-party frameworks via CocoaPods
   - Build the ``DoorBell.xcworkspace`` file
-
 - Back-end
   - Install node modules via npm
   - Start the server via forever
+- Hardware
+  - ​
 
 ### Background
 
@@ -49,7 +50,8 @@ or manually:
 
 ### Implemented Requirements
 
-
+- Face Cognition
+- IoT Project
 
 ### Structures & Modules
 
@@ -57,7 +59,34 @@ brief introduction
 
 #### Front-end
 
+In the front-end, we now use Swift to develop an iOS & watchOS app.
+
+We use the MVC Pattern, which represents Model, View, Controller to implement the separation of View and Model. Thus, we can realize the dynamic design of the program and increase the code reuse.
+
+We use some Third-Party Frameworks via CocoaPods, which show as follows:
+
+> Alamofire, Koloda, FSCalendar, SwiftyJSON, MBProgressHUD
+
+You can see more details in the Podfile.
+
+In the View layer, we use the Cocoa Touch Layer and its UIKit Framework to develop, make it convince to maintain the code. To improve the effectiveness, we have done a lot of things such as: Multithreaded parallelism, Native API, Automate code integration, optimizate certificate and signature mechanism. What's more, we use the UI Test and Unit Test to automate our workflow.
+
 #### Back-end
+
+In the back-end, we use express framework to build a node.js application. Here is the API:
+
+|     URL     | Method |               Description                |
+| :---------: | :----: | :--------------------------------------: |
+|    /file    |  Post  |             upload the photo             |
+|  /getFile   |  Get   |        get the photo from server         |
+|   /unlock   |  Post  |         post the unlock message          |
+| /getUnlock  |  Get   | get the unlock signal to decide open or not |
+|  /present   |  Post  | post the people in room message in real time |
+| /getPresent |  Get   |        get the people in the room        |
+|    /data    |  Post  |        post the similarity value         |
+|  /getData   |  Get   |            get the similarity            |
+
+To run the node.js app in server as daemon, we use [forever](https://github.com/foreverjs/forever) CLI tool.
 
 #### Cognitive Services
 
@@ -331,17 +360,13 @@ def speech_to_text():
 
 ### Demo
 
-#### UI
-
-![Bella Bell](Res/BellaBell.png)
-
 #### Video
 
-YouTube
+[YouTube]()
 
 #### Screenshot
 
-
+![Bella Bell](Res/BellaBell.png)
 
 ### Pros & Cons
 
@@ -352,12 +377,13 @@ YouTube
   - Allow you to check who is at home at anytime and anywhere
   - The door can greet you when you back home
 - Disadvantages 
-  - ​
+  - Face Cognition is not safty enough since you may can use a photo in front of the camera.
 
 ### Improvements
 
-- Face Recognition Locally
-- With the concept of Internet of thing, together with other intelligent furniture
+- Face Recognition locally
+- Add one more camera to capture 3D photo
+- Together with other intelligent furniture with IoT
 
 ### Under Construction
 
