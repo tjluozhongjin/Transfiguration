@@ -57,6 +57,10 @@ or manually:
 
 brief introduction 
 
+#### Architecture
+
+![wholeArchitecture](Res/wholeArchitecture.png)
+
 #### Front-end
 
 In the front-end, we now use Swift to develop an iOS & watchOS app.
